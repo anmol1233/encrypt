@@ -1,1 +1,1 @@
-worker: python finaly.py
+worker: python3 finaly.py
