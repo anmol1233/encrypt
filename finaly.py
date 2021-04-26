@@ -4,9 +4,9 @@ import sys
 import random
 import argparse
 import logging
-from Tkinter import *
-import tkFileDialog
-import tkMessageBox
+from tkinter import *
+from tkinter import filedialog
+import tkinter.messagebox
 import os
 import PIL
 from PIL import Image
@@ -17,7 +17,7 @@ import binascii
 import numpy as np
 
 
-global password 
+global password
 
 def load_image(name):
     return Image.open(name)
@@ -223,10 +223,10 @@ def decrypt(ciphername,password):
 # ---------------------
 
 def pass_alert():
-   tkMessageBox.showinfo("Password Alert","Please enter a password.")
+   tkinter.messagebox.showinfo("Password Alert","Please enter a password.")
 
 def enc_success(imagename):
-   tkMessageBox.showinfo("Success","Encrypted Image: " + imagename)
+   tkinter.messagebox.showinfo("Success","Encrypted Image: " + imagename)
 
 # image encrypt button event
 def image_open():
@@ -237,7 +237,7 @@ def image_open():
         pass_alert()
     else:
         password = hashlib.sha256(enc_pass).digest()
-        filename = tkFileDialog.askopenfilename()
+        filename = filedialog.askopenfilename()
         file_path_e = os.path.dirname(filename)
         encrypt(filename,password)
 
@@ -250,7 +250,7 @@ def cipher_open():
         pass_alert()
     else:
         password = hashlib.sha256(dec_pass).digest()
-        filename = tkFileDialog.askopenfilename()
+        filename = filedialog.askopenfilename()
         file_path_d = os.path.dirname(filename)
         decrypt(filename,password)
 
