@@ -1,1 +1,1 @@
-web: gunicorn finaly:app --log-file -
+worker: python finaly.py
